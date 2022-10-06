@@ -1,5 +1,6 @@
 #    This file is part of the CompressorBot distribution.
 #    Copyright (c) 2021 Danish_00
+#    -vf crop=1280:540
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -79,7 +80,7 @@ async def encc(e):
                 [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
             ],
         )
-        cmd = f'ffmpeg -i "{dl}" -vf crop=1280:540 -preset fast -c:v libx265 -crf 25 -map 0:v -c:a libopus -b:a 70k -ac 2 -map 0:a -c:s copy -map 0:s? -metadata title="Tamil Fusion | t.me/TamilFusion1" -metadata "Encoded/Mixed By"="TxR Encodes | t.me/TamilFusion1" -metadata:s:v title="Tamil Fusion | t.me/TamilFusion1" -metadata:s:a title="Tamil Fusion | t.me/TamilFusion1" -metadata:s:s title="Tamil Fusion | t.me/TamilFusion1" "{out}" -y'
+        cmd = f'ffmpeg -i "{dl}" -preset fast -c:v libx265 -crf 25 -map 0:v -c:a libopus -b:a 70k -ac 2 -map 0:a -c:s copy -map 0:s? -metadata title="Tamil Fusion | t.me/TamilFusion1" -metadata "Encoded/Mixed By"="TxR Encodes | t.me/TamilFusion1" -metadata:s:v title="Tamil Fusion | t.me/TamilFusion1" -metadata:s:a title="Tamil Fusion | t.me/TamilFusion1" -metadata:s:s title="Tamil Fusion | t.me/TamilFusion1" "{out}" -y'
         process = await asyncio.create_subprocess_shell(
             cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
